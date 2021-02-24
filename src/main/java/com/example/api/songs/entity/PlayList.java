@@ -1,5 +1,6 @@
 package com.example.api.songs.entity;
 
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,27 +16,33 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "PLAY_LIST")
 public class PlayList {
 
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
+    //@JsonView(View.Get.class)
     @Column(name="name")
     private String name;
 
+    //@JsonView(View.Get.class)
     @Column(name="description")
     private String description;
 
-
+    //@JsonView(View.Get.class)
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "playList")
     private List<Songs> songs = new ArrayList<>();
 
+    @Transient
+    public void addSong(Songs song) {
+    song.setPlayList(this);
+    songs.add(song);
+    }
 
     public Long getId() {
         return this.id;

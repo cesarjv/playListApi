@@ -20,6 +20,11 @@ public class PlayListServiceImpl implements PlayListService {
         return playList;
     }
 
+    @Override
+    public PlayList savePlayList(PlayList playList) {
+        return playListRepository.save(playList);
+    }
+
 
     
 }

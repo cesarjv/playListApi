@@ -19,19 +19,23 @@ public class Songs{
 
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
+    //@JsonView(View.Create.class)
     @Column(name = "title")
     private String title;
 
+    //@JsonView(View.Create.class)
     @Column(name = "artist")
     private String artist;
 
+    //@JsonView(View.Create.class)
     @Column(name = "album")
     private String album;
 
+    //@JsonView(View.Create.class)
     @Column(name = "year")
     private int year;
 
@@ -39,6 +43,7 @@ public class Songs{
 
     Fetch: Esta propiedad se utiliza para determinar cómo debe ser cargada la entidad.
     LAZY (perezoso): Indica que la relación solo se cargará cuando la propiedad sea leída por primera vez */
+    //@JsonView(View.Get.class)
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PLAY_LIST_ID")
