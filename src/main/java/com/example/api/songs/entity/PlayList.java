@@ -36,10 +36,10 @@ public class PlayList {
 
     //@JsonView(View.Get.class)
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "playList")
-    private List<Songs> songs = new ArrayList<>();
+    private List<Song> songs = new ArrayList<>();
 
     @Transient
-    public void addSong(Songs song) {
+    public void addSong(Song song) {
     song.setPlayList(this);
     songs.add(song);
     }
@@ -69,11 +69,11 @@ public class PlayList {
     }
 
 
-    public List<Songs> getSongs() {
+    public List<Song> getSongs() {
         return this.songs;
     }
 
-    public void setSongs(List<Songs> songs) {
+    public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
     

@@ -10,13 +10,13 @@ public class PlayListDTO {
 
     private String description;
 
-    private List<SongsDTO> songs = new ArrayList<>(); 
+    private List<SongDTO> songs = new ArrayList<>(); 
 
-    public List<SongsDTO> getSongs() {
+    public List<SongDTO> getSongs() {
         return this.songs;
     }
 
-    public void setSongs(List<SongsDTO> songs) {
+    public void setSong(List<SongDTO> songs) {
         this.songs = songs;
     }
 

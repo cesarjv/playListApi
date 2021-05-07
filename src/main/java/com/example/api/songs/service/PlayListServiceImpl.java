@@ -14,8 +14,8 @@ public class PlayListServiceImpl implements PlayListService {
     @Autowired
     private PlayListRepository playListRepository;
 
-    public Optional <PlayList> getById(Long Id) {
-        Optional <PlayList> playList= playListRepository.findById(Id);
+    public  Optional<PlayList> getById(Long Id) {
+         Optional<PlayList> playList= playListRepository.findById(Id);
 
         return playList;
     }
@@ -23,7 +23,10 @@ public class PlayListServiceImpl implements PlayListService {
     @Override
     public PlayList savePlayList(PlayList playList) {
         return playListRepository.save(playList);
+
     }
+
+    
 
 
     

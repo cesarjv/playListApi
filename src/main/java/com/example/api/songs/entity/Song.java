@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@Table(name = "SONGS")
-public class Songs{
+@Table(name = "SONG")
+public class Song{
 
     @JsonIgnore
     @Id

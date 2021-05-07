@@ -2,7 +2,7 @@ package com.example.api.songs.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SongsDTO {
+public class SongDTO {
 
     @JsonProperty("title")
     private String title;
