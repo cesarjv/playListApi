@@ -27,7 +27,7 @@ public class PlayListController {
 
    // Get playlist by id with songs belongs that playlist
 
-   @GetMapping("/{id}")
+   @GetMapping("/get/{id}")
    public Optional<PlayList> getPlayListByID(@PathVariable(value = "id") Long id) {
 
       Optional<PlayList> playList = playListService.getById(id);
@@ -55,7 +55,7 @@ public class PlayListController {
       }
         return playListService.savePlayList(playList);
      }
-   @PutMapping("/{id}")
+   @PutMapping("/update/{id}")
    public PlayList updatePlayList(@PathVariable(value = "id") Long id,@RequestBody Song song){
 
       PlayList playList = playListService.getById(id).get();
