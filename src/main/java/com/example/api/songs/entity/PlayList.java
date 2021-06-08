@@ -40,8 +40,13 @@ public class PlayList {
 
     @Transient
     public void addSong(Song song) {
-    song.setPlayList(this);
-    songs.add(song);
+        song.setPlayList(this);
+        songs.add(song);
+    }
+
+    @Transient
+    public void removeSong(Song song) {
+        songs.remove(song);
     }
 
     public Long getId() {
@@ -76,5 +81,7 @@ public class PlayList {
     public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
+
+
     
 }

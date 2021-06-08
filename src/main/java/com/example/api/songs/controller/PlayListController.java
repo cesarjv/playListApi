@@ -7,8 +7,10 @@ import com.example.api.songs.entity.PlayList;
 import com.example.api.songs.entity.Song;
 import com.example.api.songs.model.PlayListDTO;
 import com.example.api.songs.service.PlayListService;
+import com.example.api.songs.service.SongService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +26,8 @@ public class PlayListController {
    @Autowired
    private PlayListService playListService;
 
+   @Autowired
+   private SongService songService;
 
    // Get playlist by id with songs belongs that playlist
 
@@ -63,6 +67,16 @@ public class PlayListController {
       playList.getSongs().add(song);
       playListService.savePlayList(playList);
       return playList;
-   }  
+   }
+   
+   @DeleteMapping("/delete/{id}")
+   public void deleteSong(@PathVariable(value = "id") Long id,@RequestBody Song song){
+      songService.deleteSongById(id);
+   }
+
+   @DeleteMapping("/deleteByName")
+   public void deleteSongByTitle(@RequestBody Song song){
+      songService.deleteSongByTitle(song.getTitle());
+   }
 
 }
